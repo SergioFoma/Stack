@@ -7,9 +7,9 @@
 
 int main(){
     size_t startSize = 8;
-    stack_t stk = {};
-    int getNumber = -1;
     size_t getSymbol = '0';
+    int getNumber = -1;
+    stack_t stk = {};
 
     if( !stackInit( &stk, startSize ) ){
         return 0;
@@ -28,7 +28,7 @@ int main(){
     colorPrintf(NOMODE, BLUE, "Enter the number of items you want to delete: ");
     scanf("%d", &getNumber );
     for( int count = 0; count < getNumber; count++ ){
-        colorPrintf(NOMODE, BLUE, "delete stack[%zu] = %d\n", stk.size, stackPop( &stk ) );
+        colorPrintf(NOMODE, BLUE, "delete stack[%zu] = %d\n", stk.size - 1, stackPop( &stk ) );
     }
 
     if ( !stackPrint( &stk ) ){
@@ -36,6 +36,7 @@ int main(){
     }
     
     stackDestroy( &stk );
+    
 
     return 0;
 }

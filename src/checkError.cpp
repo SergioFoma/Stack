@@ -54,7 +54,7 @@ bool stackDump( const char* file, const char* func, int line, stack_t *stk ){
     fprintf( fileForDump, "stack[%p]\nSize = %zu\nCompacity = %zu\n.data[%p]\nCode of error = %d\n", 
             stk, stk->size, stk->compacity, stk->data, stk->error );
     for( size_t index = 0; index < ( stk->compacity ); index++ ){
-        if( index < (stk->size) ){
+        if( index < (stk->size) || index == stk->compacity - 1 ){
             fprintf( fileForDump, "*[%zu] = %d\n", index, (stk->data)[index] );
         }
         else{
