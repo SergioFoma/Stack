@@ -6,40 +6,50 @@
 #include "checkError.h"
 #include "paint.h"
 
-bool stackInit( stack_t *stk, size_t startSize ){
+void stackInit( stack_t *stk, size_t startSize ){
     (stk->data) = (type*)calloc( startSize + 2, sizeof( type ) );
+
+    if( stk->data == NULL ){
+        stk->error = DATA_NULL_PTR;
+        return ;
+    }
+
     stk->size = 1;
     stk->compacity = startSize + 2;
     (stk->data)[0] = canary;
     (stk->data)[stk->compacity - 1] = canary;
     stk->error = CORRECT;
 
-    return true;
+    return ;
 }
 
-bool stackPush( stack_t *stk, type value ){
+void stackPush( stack_t *stk, type value ){
     STACK_OK( stk );
 
     if( stk->size == stk->compacity - 1 ){
         (stk->compacity) *= 2;
         stk->data = (type*)realloc( stk->data, (stk->compacity) * sizeof( type ) );
+        if( stk->data == NULL ){
+            stk->error = DATA_NULL_PTR;
+            return ;
+        }
         stk->data[ stk->compacity - 1] = canary;
     }
     (stk->data)[stk->size++] = value;
     
-    return true;
+    return ;
 }
 
 type stackPop( stack_t *stk ){
     STACK_OK( stk );
 
-    if( stk->size == 1 || stk->compacity == 1){
+    if( stk->size <= 1 || stk->compacity <= 1){
         return poison_;
     }
     return (stk->data)[--(stk->size)];
 }
 
-bool stackPrint( stack_t *stk ){
+void stackPrint( stack_t *stk ){
     STACK_OK( stk );
 
     colorPrintf(NOMODE, GREEN, "\nstack: \n");
@@ -48,7 +58,7 @@ bool stackPrint( stack_t *stk ){
     }
     printf("\n");
 
-    return true;
+    return ;
 }
 
 void stackDestroy( stack_t *stk ){

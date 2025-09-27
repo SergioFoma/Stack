@@ -1,54 +1,49 @@
 #include <stdio.h>
 #include "stack.h"
+#include "checkError.h"
 
 const int poison = 765911;
 
-bool stackDump( const char* file, const char* func, int line, stack_t *stk ){
+void stackDump( const char* file, const char* func, int line, stack_t *stk ){
 
     FILE* fileForDump = fopen("StackStatus.txt", "a");
 
-    if( file == NULL ){
+    if( fileForDump == NULL){
+        printf("\nstackDump can`t to write information about stack in file\n");
+        stk->error = FILE_NULL_PTR;
+        return ;
+    }
+    else if( file == NULL ){
         fprintf( fileForDump, "\nName of file %s - NULL PTR in function %s, in line %d\n", file, func, line);
         fclose( fileForDump );
-        return false;
+        stk->error = FILE_NULL_PTR;
+        return ;
     }
-    if( func == NULL ){
+    else if( func == NULL ){
         fprintf( fileForDump, "\nName of function %s - NULL PTR in file %s, in line %d\n",
                   func, file, line );
         fclose( fileForDump );
-        return false;
+        stk->error = FUNC_NUL_PTR;
+        return ;
     }
-    if ( line < 0 ){
+    else if ( line < 0 ){
         fprintf( fileForDump, "\nThe line %d is less than zero in file %s, in function %s\n",
                  line, file, func);
         fclose( fileForDump );
-        return false;
+        stk->error = NEGATIVE_LINE;
+        return ;
     }
-    if ( stk->data == NULL ){
+    else if ( stk->data == NULL ){
         fprintf( fileForDump, "\nThe pointer to the zero date in file %s, in function %s, in line %d\n",
                 file, func, line);
-        stk->error = ERR;
         fclose( fileForDump );
-        return false;
+        stk->error = DATA_NULL_PTR;
+        return ;
     }
-    if ( stk->compacity < 0 ){
-        fprintf(fileForDump, "\nSize of data %zu is less than zero in file %s, in function %s, in line %d\n",
-                stk->compacity, file, func, line);
-        stk->error = ERR;
-        fclose( fileForDump );
-        return false;
-    }
-    if ( stk->size < 0 ){
-        fprintf( fileForDump, "\nNo elements in stack: %zu in file %s, in function %s, in line %d\n",
-                 stk->size, file, func, line );
-        stk->error = ERR;
-        fclose( fileForDump );
-        return false;
-    }
-    if ( stk->error == ERR ){
+    else if ( stk->error != CORRECT ){
         fprintf( fileForDump, "\nCode of error - 1 in file %s, in function %s, in line %d\n", file, func, line);
         fclose( fileForDump );
-        return false;
+        return ;
     }
     fprintf( fileForDump, "\nstackDump called from file %s, in function %s, in line %d\n", file, func, line);
     fprintf( fileForDump, "stack[%p]\nSize = %zu\nCompacity = %zu\n.data[%p]\nCode of error = %d\n", 
@@ -63,5 +58,5 @@ bool stackDump( const char* file, const char* func, int line, stack_t *stk ){
     }
     fclose( fileForDump );
 
-    return true;
+    return ;
 }

@@ -11,15 +11,11 @@ int main(){
     int getNumber = -1;
     stack_t stk = {};
 
-    if( !stackInit( &stk, startSize ) ){
-        return 0;
-    }
+    stackInit( &stk, startSize );
 
     colorPrintf(NOMODE, YELLOW, "Enter the elements of stack: ");
     while( scanf("%d", &getNumber ) == 1  ){
-        if( !stackPush( &stk,getNumber ) ){
-            return 0;
-        }
+        stackPush( &stk,getNumber );
         if( ( getSymbol = getchar() ) == '\n' ){
             break;
         }
@@ -31,9 +27,7 @@ int main(){
         colorPrintf(NOMODE, BLUE, "delete stack[%zu] = %d\n", stk.size - 1, stackPop( &stk ) );
     }
 
-    if ( !stackPrint( &stk ) ){
-        return 0;
-    }
+    stackPrint( &stk );
     
     stackDestroy( &stk );
     
