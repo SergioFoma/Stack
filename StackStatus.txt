@@ -1,0 +1,204 @@
+
+stackDump called from file ./src/stack.cpp, in function stackPush, in line 27
+stack[007AFEE0]
+Size = 1
+Compacity = 10
+.data[010804B0]
+Code of error = 0
+*[0] = 179171341
+ [1] = 765911( POISON )
+ [2] = 765911( POISON )
+ [3] = 765911( POISON )
+ [4] = 765911( POISON )
+ [5] = 765911( POISON )
+ [6] = 765911( POISON )
+ [7] = 765911( POISON )
+ [8] = 765911( POISON )
+*[9] = 179171341
+
+stackDump called from file ./src/stack.cpp, in function stackPush, in line 27
+stack[007AFEE0]
+Size = 2
+Compacity = 10
+.data[010804B0]
+Code of error = 0
+*[0] = 179171341
+*[1] = 1
+ [2] = 765911( POISON )
+ [3] = 765911( POISON )
+ [4] = 765911( POISON )
+ [5] = 765911( POISON )
+ [6] = 765911( POISON )
+ [7] = 765911( POISON )
+ [8] = 765911( POISON )
+*[9] = 179171341
+
+stackDump called from file ./src/stack.cpp, in function stackPush, in line 27
+stack[007AFEE0]
+Size = 3
+Compacity = 10
+.data[010804B0]
+Code of error = 0
+*[0] = 179171341
+*[1] = 1
+*[2] = 2
+ [3] = 765911( POISON )
+ [4] = 765911( POISON )
+ [5] = 765911( POISON )
+ [6] = 765911( POISON )
+ [7] = 765911( POISON )
+ [8] = 765911( POISON )
+*[9] = 179171341
+
+stackDump called from file ./src/stack.cpp, in function stackPush, in line 27
+stack[007AFEE0]
+Size = 4
+Compacity = 10
+.data[010804B0]
+Code of error = 0
+*[0] = 179171341
+*[1] = 1
+*[2] = 2
+*[3] = -10
+ [4] = 765911( POISON )
+ [5] = 765911( POISON )
+ [6] = 765911( POISON )
+ [7] = 765911( POISON )
+ [8] = 765911( POISON )
+*[9] = 179171341
+
+stackDump called from file ./src/stack.cpp, in function stackPush, in line 27
+stack[007AFEE0]
+Size = 5
+Compacity = 10
+.data[010804B0]
+Code of error = 0
+*[0] = 179171341
+*[1] = 1
+*[2] = 2
+*[3] = -10
+*[4] = 23
+ [5] = 765911( POISON )
+ [6] = 765911( POISON )
+ [7] = 765911( POISON )
+ [8] = 765911( POISON )
+*[9] = 179171341
+
+stackDump called from file ./src/stack.cpp, in function stackPush, in line 27
+stack[007AFEE0]
+Size = 6
+Compacity = 10
+.data[010804B0]
+Code of error = 0
+*[0] = 179171341
+*[1] = 1
+*[2] = 2
+*[3] = -10
+*[4] = 23
+*[5] = -45
+ [6] = 765911( POISON )
+ [7] = 765911( POISON )
+ [8] = 765911( POISON )
+*[9] = 179171341
+
+stackDump called from file ./src/stack.cpp, in function stackPop, in line 44
+stack[007AFEE0]
+Size = 7
+Compacity = 10
+.data[010804B0]
+Code of error = 0
+*[0] = 179171341
+*[1] = 1
+*[2] = 2
+*[3] = -10
+*[4] = 23
+*[5] = -45
+*[6] = 8
+ [7] = 765911( POISON )
+ [8] = 765911( POISON )
+*[9] = 179171341
+
+stackDump called from file ./src/stack.cpp, in function stackPop, in line 44
+stack[007AFEE0]
+Size = 6
+Compacity = 10
+.data[010804B0]
+Code of error = 0
+*[0] = 179171341
+*[1] = 1
+*[2] = 2
+*[3] = -10
+*[4] = 23
+*[5] = -45
+ [6] = 765911( POISON )
+ [7] = 765911( POISON )
+ [8] = 765911( POISON )
+*[9] = 179171341
+
+stackDump called from file ./src/stack.cpp, in function stackPop, in line 44
+stack[007AFEE0]
+Size = 5
+Compacity = 10
+.data[010804B0]
+Code of error = 0
+*[0] = 179171341
+*[1] = 1
+*[2] = 2
+*[3] = -10
+*[4] = 23
+ [5] = 765911( POISON )
+ [6] = 765911( POISON )
+ [7] = 765911( POISON )
+ [8] = 765911( POISON )
+*[9] = 179171341
+
+stackDump called from file ./src/stack.cpp, in function stackPop, in line 44
+stack[007AFEE0]
+Size = 4
+Compacity = 10
+.data[010804B0]
+Code of error = 0
+*[0] = 179171341
+*[1] = 1
+*[2] = 2
+*[3] = -10
+ [4] = 765911( POISON )
+ [5] = 765911( POISON )
+ [6] = 765911( POISON )
+ [7] = 765911( POISON )
+ [8] = 765911( POISON )
+*[9] = 179171341
+
+stackDump called from file ./src/stack.cpp, in function stackPop, in line 44
+stack[007AFEE0]
+Size = 3
+Compacity = 10
+.data[010804B0]
+Code of error = 0
+*[0] = 179171341
+*[1] = 1
+*[2] = 2
+ [3] = 765911( POISON )
+ [4] = 765911( POISON )
+ [5] = 765911( POISON )
+ [6] = 765911( POISON )
+ [7] = 765911( POISON )
+ [8] = 765911( POISON )
+*[9] = 179171341
+
+stackDump called from file ./src/stack.cpp, in function stackPrint, in line 53
+stack[007AFEE0]
+Size = 2
+Compacity = 10
+.data[010804B0]
+Code of error = 0
+*[0] = 179171341
+*[1] = 1
+ [2] = 765911( POISON )
+ [3] = 765911( POISON )
+ [4] = 765911( POISON )
+ [5] = 765911( POISON )
+ [6] = 765911( POISON )
+ [7] = 765911( POISON )
+ [8] = 765911( POISON )
+*[9] = 179171341

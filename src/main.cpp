@@ -24,7 +24,7 @@ int main(){
     colorPrintf(NOMODE, BLUE, "Enter the number of items you want to delete: ");
     scanf("%d", &getNumber );
     for( int count = 0; count < getNumber; count++ ){
-        colorPrintf(NOMODE, BLUE, "delete stack[%zu] = %d\n", stk.size - 1, stackPop( &stk ) );
+        colorPrintf(NOMODE, BLUE, "delete stack[%u] = %d\n", stk.size - 1, stackPop( &stk ) );
     }
 
     stackPrint( &stk );
