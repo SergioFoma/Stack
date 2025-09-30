@@ -36,12 +36,14 @@ void stackPush( stack_t *stk, type value ){
         stk->data[ stk->compacity - 1] = canary;
     }
     (stk->data)[stk->size++] = value;
-    
+
     return ;
 }
 
 type stackPop( stack_t *stk ){
-    STACK_OK( stk );
+    if ( stackVerif( stk ) != CORRECT ){
+        return poison_;
+    }
 
     if( stk->size <= 1 || stk->compacity <= 1){
         return poison_;

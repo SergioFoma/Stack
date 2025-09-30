@@ -1,4 +1,4 @@
-#include <TXLib.h>
+//#include <TXLib.h>
 #include <stdio.h>
 
 #include "stack.h"
@@ -28,9 +28,9 @@ int main(){
     }
 
     stackPrint( &stk );
-    
+
     stackDestroy( &stk );
-    
+
 
     return 0;
 }
