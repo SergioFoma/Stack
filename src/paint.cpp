@@ -45,7 +45,7 @@ const char* getStyleString( Styles style ) {
         case BLINKING:
             return makeBlinking;
             break;
-        case CROSSEDOUT:
+        case CROSSEDOUT: // TODO CROSSED_OUT
             return makeCrossedOut;
             break;
         case NOMODE:
@@ -59,8 +59,8 @@ const char* getStyleString( Styles style ) {
 
 void colorPrintf( Styles style, Colors color,  const char* line ... ) {
 
-    va_list args; // объявляем указатель
-    va_start( args, line ); // связываем args с первым необязательным параметром. va_list как указатель
+    va_list args; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    va_start( args, line ); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ args пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. va_list пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
     printf("%s", getStyleString( style ) );
     printf("%s", getColorString(color));

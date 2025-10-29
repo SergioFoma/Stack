@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 #include "stack.h"
-#include "checkError.h"
+#include "stackCheckError.h"
 #include "paint.h"
 
 int main(){
