@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <malloc.h>
+#include <assert.h>
 
 const char* getColorString( Colors color ) {
     switch (color) {
@@ -45,7 +46,7 @@ const char* getStyleString( Styles style ) {
         case BLINKING:
             return makeBlinking;
             break;
-        case CROSSEDOUT: // TODO CROSSED_OUT
+        case CROSSEDOUT:
             return makeCrossedOut;
             break;
         case NOMODE:
@@ -59,8 +60,8 @@ const char* getStyleString( Styles style ) {
 
 void colorPrintf( Styles style, Colors color,  const char* line ... ) {
 
-    va_list args; // ��������� ���������
-    va_start( args, line ); // ��������� args � ������ �������������� ����������. va_list ��� ���������
+    va_list args;
+    va_start( args, line );
 
     printf("%s", getStyleString( style ) );
     printf("%s", getColorString(color));
@@ -70,19 +71,21 @@ void colorPrintf( Styles style, Colors color,  const char* line ... ) {
     va_end( args );
 }
 
-void squareHelp() {
 
-    colorPrintf(NOMODE, YELLOW, "    NOTE: this program solves a quadratic equation\n"
-           "          of the form ax^2+bx+c\n\n"
-           "   PRINT: the roots of the quadratic equation and their number\n\n"
-           "   --help     display this help and exit\n\n"
-           "   Some flags, that are used in int this program:\n\n"
-           "   --Test      Prints unit tests that check the operation of a program \n"
-           "               that solves a quadratic equation\n\n"
-           "   --file-test Runs unit tests from a file\n"
-           "     that will be specified after the flag\n\n"
-        );
+int printfError_(const char* file, const char* function, int line, const char* lineForError ...){
+    assert( file != NULL );
+    assert( function != NULL );
+    assert( lineForError != NULL );
 
+    va_list args;
+    va_start( args, lineForError );
+
+    printf("%s", getStyleString( NOMODE ));
+    printf("%s", getColorString( RED ));
+    printf("\nError in %s, in function %s, in line %d\n", file, function, line);
+    vprintf(lineForError, args);
     printf("%s", colorReset );
 
+    va_end( args );
+    return 0;
 }
